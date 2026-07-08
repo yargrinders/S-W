@@ -2,21 +2,103 @@
 <html lang="de" data-theme="dark">
 <head>
     @@include('components/_head.html',{
-        "title":"Schneider+Winter — App Portal"
+        "title":"Einblas-Protokoll — Schneider+Winter"
         })
 </head>
 <body>
     <div class="app" data-sidebar="open">
         @@include('components/aside.html')
-        @@include('apps/main.html')
-        <!-- @@include('components/footer.html') -->
+
+        <main class="main">
+          <header class="topbar">
+            <button class="mobile-burger" id="mobileBurger" type="button" aria-label="Menü öffnen">
+              <i class="ti ti-menu-2"></i>
+            </button>
+            <div class="page-title">
+              <span>Schneider+Winter Elektrotechnik</span>
+              <h1>Einblas-Protokoll</h1>
+            </div>
+          </header>
+
+          <section class="sheet epa" aria-label="Einblas-Protokoll Generator">
+            <div class="epa__hero">
+              <div class="epa__mark">EP</div>
+              <div>
+                <span class="epa__eyebrow">PDF → Excel</span>
+                <h2>Einblas-Protokoll verarbeiten</h2>
+                <p>PDF laden, erkannte Daten prüfen, Aufmaß und Materialliste als ZIP herunterladen.</p>
+              </div>
+            </div>
+
+            <section id="dropzone" class="epa-drop">
+              <input type="file" id="fileInput" accept="application/pdf" hidden>
+              <i class="ti ti-file-upload"></i>
+              <p class="epa-drop__title">Einblas-Protokoll PDF hier ablegen</p>
+              <p class="epa-drop__hint">oder klicken zum Auswählen</p>
+            </section>
+
+            <p id="error" class="epa-error" hidden></p>
+
+            <section id="editor" class="epa-editor" hidden>
+              <div class="epa-editor__top">
+                <div>
+                  <span class="epa__eyebrow">Editor</span>
+                  <h3>Erkannte Felder</h3>
+                </div>
+                <p class="epa-editor__source">Quelle: <span id="sourceName"></span></p>
+              </div>
+              <p class="epa-editor__hint">Wenn Plumett falsch ausgefüllt wurde, hier korrigieren. Diese Werte gehen in die XLSX-Berichte.</p>
+
+              <div id="fields" class="epa-fields fields"></div>
+
+              <div class="epa-editor__actions">
+                <button id="resetBtn" class="epa-btn epa-btn--ghost" type="button">Andere Datei</button>
+                <button id="generateBtn" class="epa-btn epa-btn--primary" type="button">Archiv erstellen</button>
+              </div>
+            </section>
+
+            <section id="result" class="epa-result" hidden>
+              <div class="epa-result__icon"><i class="ti ti-check"></i></div>
+              <p class="epa-result__title">Fertig.</p>
+              <a id="downloadLink" class="epa-btn epa-btn--primary" download>Download</a>
+              <button id="againBtn" class="epa-btn epa-btn--ghost" type="button">Neues Protokoll</button>
+            </section>
+          </section>
+        </main>
     </div>
-    
-    <!-- Scripts -->
+
+    <div id="loader" class="epa-loader" hidden>
+      <div class="epa-loader__box">
+        <p class="epa-loader__title">Archiv wird erstellt…</p>
+        <ol id="steps" class="epa-steps"></ol>
+        <div class="epa-progress"><div id="progressBar" class="epa-progress__bar"></div></div>
+        <p id="progressText" class="epa-progress__text">0%</p>
+      </div>
+    </div>
+
+    <script>
+      window.EPA_CDN_BASE = 'https://cdn.jsdelivr.net/gh/yargrinders/EPA@main/';
+      window.SETTINGS = {
+        pdf: { include: false, editChangedFields: true },
+        excel: { aufmass: true, material: true },
+        archive: { autoDownload: true, compression: 'DEFLATE' },
+        ui: { showLoader: true, debug: false }
+      };
+      const swOriginalFetch = window.fetch.bind(window);
+      window.fetch = (input, init) => {
+        if (typeof input === 'string' && (input.startsWith('json/') || input.startsWith('files/'))) {
+          return swOriginalFetch(window.EPA_CDN_BASE + input, init);
+        }
+        return swOriginalFetch(input, init);
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yargrinders/EPA@main/js/xlsx-patch.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yargrinders/EPA@main/js/pdf-fields.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yargrinders/EPA@main/js/pdf-edit.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/yargrinders/EPA@main/js/main.js"></script>
     <script src="js/main.min.js"></script>
 </body>
 </html>
-
-
-
-
