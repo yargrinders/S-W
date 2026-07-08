@@ -1,0 +1,29 @@
+:root {
+  --sidebar-open: 272px;
+  --sidebar-closed: 72px;
+  --bg: #f6f8fc;
+  --sidebar-bg: rgba(255, 255, 255, .86);
+  --sidebar-line: rgba(20, 40, 80, .09);
+  --text: #16243b;
+  --muted: #6d7b92;
+  --active-bg: linear-gradient(90deg, rgba(26, 119, 255, .11), rgba(26, 119, 255, .03));
+  --accent: #1177ff;
+  --accent-2: #20c4ff;
+  --sheet: #fff;
+  --shadow: 0 20px 60px rgba(24, 42, 78, .09);
+  --radius: 20px;
+
+  /* App Page */
+  --text: #17355e;
+  --text-dim: #7b8ea8;
+  --panel: #ffffff;
+  --line: #dbe4ef;
+  --brand: #244aa5;
+  --brand-2: #325fc9;
+  --brand-soft: rgba(36, 74, 165, 0.08);
+  --text-soft: #58708f;
+  --radius-xl: 18px;
+  --radius-lg: 14px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+}

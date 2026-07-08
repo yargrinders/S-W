@@ -1,0 +1,81 @@
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  .app,
+  .app[data-sidebar="closed"],
+  .app[data-sidebar="open"] {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--sidebar-open);
+    transform: translateX(-110%);
+    transition: transform .22s ease;
+  }
+
+  .app[data-sidebar="open"] .sidebar { transform: translateX(0); }
+  .app[data-sidebar="open"] .backdrop { display: block; }
+
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .44);
+    backdrop-filter: blur(3px);
+    z-index: 10;
+  }
+
+  .mobile-burger { display: grid; }
+  .sidebar-toggle { display: none; }
+
+  .app[data-sidebar="closed"] .logo--wide    { display: block !important; }
+  .app[data-sidebar="closed"] .logo--compact { display: none !important;  }
+
+  .app[data-sidebar="closed"] .nav__link {
+    width: auto;
+    padding: 0 12px;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .app[data-sidebar="closed"] .nav__link span { display: inline; }
+  .app[data-sidebar="closed"] .nav__link::before { display: block; }
+  .app[data-sidebar="closed"] .sidebar__bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .app[data-sidebar="closed"] .theme-toggle-sidebar {
+    width: auto;
+    padding: 0 12px 0 10px;
+  }
+  .app[data-sidebar="closed"] .theme-toggle-sidebar .theme-label { display: inline; }
+}
+
+/* ── Compact text logo ── */
+.logo--text {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  color: var(--text);
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--sidebar-line);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/* show compact text logo when closed */
+.app[data-sidebar="closed"] .logo--text.logo--dark,
+.app[data-sidebar="closed"] .logo--text.logo--light {
+  display: flex !important;
+}
+html[data-theme="dark"]  .app[data-sidebar="closed"] .logo--text.logo--light { display: none !important; }
+html[data-theme="light"] .app[data-sidebar="closed"] .logo--text.logo--dark  { display: none !important; }

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Schneider+Winter Elektrotechnik — internes Portal" />
+    <title>Schneider+Winter — App Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <!-- <link rel="stylesheet" href="css/main.css" /> -->
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+    <div class="app" data-sidebar="open">
+        <aside class="sidebar" id="sidebar" aria-label="Hauptnavigation">
+      <!-- Logo -->
+      <div class="sidebar__top">
+        <a class="brand" href="#" aria-label="Schneider+Winter Elektrotechnik GmbH">
+          <!-- wide: your real logo -->
+          <img class="logo logo--wide logo--dark"    src="images/logo/S_W.png" alt="Schneider+Winter">
+          <img class="logo logo--wide logo--light"   src="images/logo/S_W.png" alt="Schneider+Winter">
+          <!-- compact: just show initials via CSS text, no image needed -->
+          <span class="logo logo--compact logo--dark  logo--text">S+W</span>
+          <span class="logo logo--compact logo--light logo--text">S+W</span>
+        </a>
+      </div>
+
+      <!-- Navigation -->
+       <nav class="nav" aria-label="Menü">
+        <a href="index.html" class="nav__link active" title="Dashboard">
+          <i class="ti ti-home"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="apps.html" class="nav__link" title="Apps">
+          <i class="ti ti-apps"></i>
+          <span>Apps</span>
+        </a>
+        <!-- <a class="nav__link" href="#" title="Kunden">
+          <i class="ti ti-user"></i>
+          <span>Kunden</span>
+        </a>
+        <a class="nav__link" href="#" title="Projekte">
+          <i class="ti ti-cube"></i>
+          <span>Projekte</span>
+        </a>
+        <a class="nav__link" href="#" title="Dokumente">
+          <i class="ti ti-file-text"></i>
+          <span>Dokumente</span>
+        </a>
+        <a class="nav__link" href="#" title="Berichte">
+          <i class="ti ti-chart-bar"></i>
+          <span>Berichte</span>
+        </a>
+        <a class="nav__link" href="#" title="Einstellungen">
+          <i class="ti ti-settings"></i>
+          <span>Einstellungen</span>
+        </a> -->
+</nav>
+      <!-- <a href="https://tabler.io/icons" class="ti ti-link" target="_blank">Tabler Icons</a -->
+      
+      <!-- Bottom controls: theme + toggle -->
+      <div class="sidebar__bottom">
+        <button class="theme-toggle-sidebar" id="themeToggle" type="button" aria-label="Farbschema wechseln">
+          <i class="ti ti-sun"></i>
+          <span class="theme-label">Hell / Dunkel</span>
+        </button>
+        <button class="sidebar-toggle" id="sidebarToggle" type="button"
+                aria-label="Seitenleiste ein-/ausklappen"
+                aria-controls="sidebar" aria-expanded="true">
+          <i class="ti ti-layout-sidebar-left-collapse"></i>
+        </button>
+      </div>
+    </aside>
+    <div class="backdrop" id="backdrop" aria-hidden="true"></div>
+        <main class="main">
+      <header class="topbar">
+        <button class="mobile-burger" id="mobileBurger" type="button" aria-label="Menü öffnen">
+          <i class="ti ti-menu-2"></i>
+        </button>
+        <div class="page-title">
+          <!-- <h1>Apps</h1> -->
+        </div>
+      </header>
+
+      <section class="sheet" aria-label="Arbeitsbereich">
+        <div class="app-body">
+      <h1 class="app-title">Apps</h1>
+      <p class="app-sub">Wähle eine Anwendung</p>
+      <div class="app-grid">
+
+        <!-- App 1: Faser_doc -->
+        <!-- <a href="fd.html" class="app-card">
+          <div class="app-card-thumb-placeholder"> -->
+            <!--
+              Замени на свою картинку:
+              <img src="img/preview-ep.png" class="app-card-thumb" alt="Einblass-Protokoll">
+            -->
+            <!-- <span>Vorschaubild folgt</span>
+          </div>
+          <div class="app-card-body">
+            <div class="app-card-name">Generateur de termes</div>
+            <div class="app-card-desc">GF-Anschluss Terminzettel — QR-Codes, PDF-Export, Mehrfach-Städte</div>
+            <span class="app-card-badge">Aktiv</span>
+          </div>
+        </a> -->
+
+        <!-- App 2: Einblass-Protokoll (coming soon) -->
+        <a href="ep.html" class="app-card">
+          <div class="app-card-thumb-placeholder">
+              <!-- Замени на свою картинку: -->
+              <img src="/images/logo/p-e_logo.jpg" class="app-card-thumb" alt="Einblass-Protokoll">
+            <!-- <span>Vorschaubild folgt</span> -->
+          </div>
+          <div class="app-card-body">
+            <div class="app-card-name">Einblass-Protokoll</div>
+            <div class="app-card-desc">Protokollierung von Einblasvorgängen — mit PDF-Export und QR-Codes</div>
+            <span class="app-card-badge">Aktiv</span>
+          </div>
+        </a>
+
+        <!-- App 3: Glassfaser-farben fimder -->
+        <!-- <div class="app-card app-card--disabled">
+          <div class="app-card-thumb-placeholder"> -->
+            <!--
+              Замени на свою картинку:
+              <img src="img/preview-ep.png" class="app-card-thumb" alt="Einblass-Protokoll">
+            -->
+            <!-- <span>In Bearbeitung</span>
+          </div>
+          <div class="app-card-body">
+            <div class="app-card-name">Glassfaser-farben fimder</div>
+            <div class="app-card-desc">Farbfindung für Glassfaser-Produkte — noch in Entwicklung</div>
+            <span class="app-card-badge app-card-badge--soon">Demnächst</span>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+      </section>
+    </main>
+        
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/main.min.js"></script>
+</body>
+</html>
